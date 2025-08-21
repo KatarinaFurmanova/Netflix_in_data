@@ -1,6 +1,6 @@
 # About this repository
 
-This is a repository with a demo Plotly Dash application that is used to host the application at [https://render.com/](https://render.com/).
+This is a repository with a demo Plotly Dash application. The repository is used to host the application at [https://render.com/](https://render.com/).
 
 # Deploying a Dash Application on Render
 
