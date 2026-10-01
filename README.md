@@ -59,7 +59,7 @@ gunicorn
 $ gunicorn app:server
 ```
 
-4. Click the "Create Web Service" button to create the service. Click the "Deploy Web Service" button to create the service. Render will automatically build and deploy your application. This may take several minutes to complete. Once the deployment is complete, you can click on the service URL to view your application.
+4. Click the "Deploy Web Service" button to create the service. Render will automatically build and deploy your application. This may take several minutes to complete. Once the deployment is complete, you can click on the service URL to view your application.
 
 Our [dashboard application](https://netflix-in-data.onrender.com/) is now successfully deployed on Render. It is now live and can be accessed from anywhere with an internet connection.
 
