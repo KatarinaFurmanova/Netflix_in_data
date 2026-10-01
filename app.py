@@ -54,7 +54,12 @@ app.layout = html.Div( #this is the main structure of the application
         'height': '100%',
         'color': 'white',
         'margin': 0,
-        'padding': '15px' 
+        'padding': '15px', 
+        '--Dash-Fill-Interactive-Strong': 'red', #accent color on sliders and buttons
+        '--Dash-Fill-Disabled': 'white',
+        '--Dash-Text-Primary': 'white',
+        '--Dash-Text-Strong': 'white',
+        '--Dash-Text-Disabled': 'white'
     }, 
     
     children=[ #all elements in the main application layoud should be specified here
@@ -67,7 +72,7 @@ app.layout = html.Div( #this is the main structure of the application
     
         #****************************Controls*************************************
         html.Div(children=[ #html div element with 2 child nodes - text and radiobutton container (with radio buttons as children)
-            'Content type:', 
+            html.Label('Content type:',  style={'width': '200px'}), 
             dcc.RadioItems(['Movies', 'Shows', 'All'], #options
                            'All', #default option
                            id='content', #ID - this is used in callbacks to identify input and output elements
@@ -76,7 +81,7 @@ app.layout = html.Div( #this is the main structure of the application
         ),
     
         html.Div(children=[ #html div element with 2 child nodes - text and radiobutton container (with radio buttons as children)
-            'Fixed color range:', 
+            html.Label('Fixed color range:',  style={'width': '200px'}), 
             dcc.RadioItems(['Fix', 'Auto'], #options
                        'Auto', #default option
                        id='fix_scale', #ID - this is used in callbacks to identify input and output elements
@@ -101,9 +106,11 @@ app.layout = html.Div( #this is the main structure of the application
         #****************************Slider*************************************   
         dcc.Markdown('**Years**'), #stylized text using markdown styling 
         html.Div([#html div element with one child node - a year slider
-            dcc.Slider(1942, 2021, step = 1, value=2021, id='slider',
+            dcc.Slider(1942, 2021, step = 1, value=2021, id='slider', 
                     marks={i: '{}'.format(i) for i in range(1942,2021,10)},
-                    tooltip={'placement': 'bottom', 'always_visible': True})
+                    allow_direct_input=False,
+                    tooltip={'placement': 'top', 'always_visible': True, 
+                             'style': {"color": "black"},})
             ], 
             style={'width': '50%', 'display': 'inline-block'}),
 
@@ -111,6 +118,7 @@ app.layout = html.Div( #this is the main structure of the application
          #****************************Table*************************************
          html.Div(#html div element with no children (so far)
             children=[],
+            style={'padding-top': '20px'},
             id="table_container" #ID - this is used in callbacks to identify input and output elements (we will place the table in here)
         ),
         
@@ -234,7 +242,7 @@ def update_year(clickData):
 
 #********RUNNING THE APP*************************************************
 if __name__ == '__main__':
-    app.run_server(jupyter_mode="external", debug=False) 
+    app.run(debug=False) 
 
 
 
