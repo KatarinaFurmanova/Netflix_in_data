@@ -18,7 +18,7 @@ This tutorial (created by [thusharabandara](https://github.com/thusharabandara/d
 1. Locate the section of code where the `app` variable is defined. It should be something like the following:
 
 ```
-app = dash.Dash(\\\_\\\_name\\\_\\\_)
+app = Dash(__name__)
 ```
 
 2. Add the following line of code after the `app` variable definition:
